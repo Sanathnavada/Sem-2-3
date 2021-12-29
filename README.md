@@ -1,2 +1,2 @@
 # Sem-3
-SEM 3 offical lab programs
+SEM 3important lab programs
