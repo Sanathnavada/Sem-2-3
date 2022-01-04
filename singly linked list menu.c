@@ -16,6 +16,7 @@ int searchlist(int el,NODE*first);
 NODE*insertspecific(int elo,int pos,NODE*first);
 NODE*deletespecific(int pos,NODE*first);
 NODE* selectionSort(NODE *first, int n);
+NODE *reversell(NODE *first);
 int main()
 {
     NODE *first=NULL;
@@ -24,7 +25,7 @@ int main()
    
    for(;;)
    {
-       printf("enter  \n 1 to Insert a node at the front of the list\n 2 to Insert a node at rear of the list\n 3 to Delete a node from the front of the list\n 4 to Delete a node from thr rear of the list\n 5 to insert a node at specific position \n 6 to delete a node from a specific position\n 7 to Display the content of the list \n 8 to search an element\n 9 to exit\n");
+       printf("enter  \n 1 to Insert a node at the front of the list\n 2 to Insert a node at rear of the list\n 3 to Delete a node from the front of the list\n 4 to Delete a node from thr rear of the list\n 5 to insert a node at specific position \n 6 to delete a node from a specific position\n 7 to Display the content of the list \n 8 to search an element \n 9 to reverse the list \n 10 to exit \n ");
        scanf("%d",&ch);
        switch(ch)
        {
@@ -100,7 +101,12 @@ int main()
                   searchlist(el,first);
                   break;
             
-            case 9:exit(0);  
+
+            case 9: first = reversell(first);
+                     break;
+            
+           case 10:exit(0);  
+
             
             default: printf("enter from 1-5\n");        
        } 
@@ -267,6 +273,30 @@ int searchlist(int el,NODE*first)
     }
     if(t==0)
     printf("search unsuccessfull\n");
+}
+
+NODE *reversell(NODE *first)
+{
+    if(first == NULL)
+{   printf("empty list \n");
+	return NULL;
+}
+if(first->link==NULL)
+{
+	return first;
+
+}
+NODE *temp,*prev = NULL,*present = first,*next;
+
+ 
+    while (present != NULL)
+    {
+        next  = present->link;  
+        present->link = prev;   
+        prev = present;
+        present = next;
+    }
+    return prev;
 }
 
 
