@@ -1,3 +1,11 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
 #include <stdio.h>
 #include<stdlib.h>
 typedef struct node
@@ -29,7 +37,7 @@ int main()
  int ch,ele,n=0,pos,flag;
  for(;;)
  {   
-     printf("\n MENU for CIRCULAR LINKED LIST \n enter \n 1.to Insert at the front of the list\n 2.to Insert at rear of the list\n 3.to Delete from the front of the list\n 4.to Delete from the rear of the list\n 5.to Display the content of the list \n 6.to insert at specific position \n 7.to delete from a specific position \n 8.to merge two lists \n 9.to search an element \n 10.to reverse the list \n 11.to update a node in the list \n 12.to sort the list \n 13.to remove duplicate nodes in a list if present \n 14.to check if given list is a palindrome \n 15. to exit \n");
+     printf("\n MENU for CIRCULAR LINKED LIST \n enter \n 1. to Insert at the front of the list\n 2. to Insert at rear of the list\n 3. to Delete from the front of the list\n 4. to Delete from the rear of the list\n 5. to Display the content of the list \n 6. to insert at specific position \n 7. to delete from a specific position \n 8. to merge two lists \n 9. to search an element \n 10.to reverse the list \n 11.to update a node in the list \n 12.to sort the list \n 13.to remove duplicate nodes in a list if present \n 14.to check if given list is a palindrome \n 15.to exit \n");
      scanf("%d",&ch);
      switch(ch)
       {
@@ -164,12 +172,28 @@ NODE *listconcat(NODE*last)
     switch(ans)
     {
         case 'y':if(last ==NULL)
-                {printf("no pre existing 1st list present \n ");}
-                t1=last;
-                printf("enter the size of second list ");
+                {
+                 printf("no pre existing  list present \n ");
+                 printf("enter the size of 1st list ");
                  scanf("%d",&a);
+                 printf("enter the elements of 1st list "); 
+                     for(i=0;i<a;i++)
+                    {   
+                        scanf("%d",&ele);
+                        t1=insert_rear(ele,t1);
+                        
+                    }
+                }
+                else
+                {
+                    t1=last;
+                    
+                }
+                
+                printf("enter the size of second list ");
+                 scanf("%d",&b);
                  printf("enter the elements of second list ");
-                for(i=0;i<a;i++)
+                for(i=0;i<b;i++)
                  {  
                      scanf("%d",&ele);
                     t2=insert_rear(ele,t2);
@@ -205,7 +229,9 @@ NODE *listconcat(NODE*last)
     t1->link =t2->link;
     t2->link=t3;
     
-   
+   printf("The merged list is : \n") ;
+   display_list(t2);
+
     return t2;
         
     
